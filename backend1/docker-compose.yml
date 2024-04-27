@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  lb:
+    image: haproxy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+  ws-server1:
+    image: ws-server
+    ports:
+      - "1111:1111"
+    environment:
+      - APPID=1111
+  ws-server2:
+    image: ws-server
+    ports:
+      - "2222:2222"
+    environment:
+      - APPID=2222
+  ws-server3:
+    image: ws-server
+    ports:
+      - "3333:3333"
+    environment:
+      - APPID=3333
